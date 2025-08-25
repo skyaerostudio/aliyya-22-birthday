@@ -20,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     const checkBirthdayTime = () => {
       const now = new Date()
-      const birthdayDate = new Date('2025-08-25T16:33:00+07:00')
+      const birthdayDate = new Date('2025-08-30T00:00:00+07:00')
       setIsBirthdayTime(now >= birthdayDate)
     }
 

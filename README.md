@@ -112,7 +112,7 @@ Replace the placeholder images in the Gallery component with real photos. Update
 Update the target date in `app/components/Countdown.tsx`:
 
 ```typescript
-let targetDate = new Date('2025-08-25T16:33:00+07:00').getTime()
+let targetDate = new Date('2025-08-30T00:00:00+07:00').getTime()
 ```
 
 ### Gate Questions
