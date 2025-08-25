@@ -17,7 +17,7 @@ const Countdown = () => {
       const now = new Date().getTime()
       
       // Birthday: August 30, 2025 at midnight Jakarta time (UTC+7)
-      let targetDate = new Date('2025-08-30T00:00:00+07:00').getTime()
+      let targetDate = new Date('2025-08-25T16:33:00+07:00').getTime()
       
       // If this year's birthday has passed, calculate for next year
       if (now > targetDate) {
