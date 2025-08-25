@@ -1,0 +1,22 @@
+{
+  "style": {
+    "typescript": true,
+    "reactFunctional": true,
+    "componentNaming": "PascalCase",
+    "functionNaming": "camelCase",
+    "noConsoleInProd": true
+  },
+  "prompts": {
+    "diffOnly": true,
+    "multiFileAllowed": true,
+    "preferLightweightDeps": true
+  },
+  "a11y": {
+    "modalFocusTrap": true,
+    "ariaLabelsRequired": true,
+    "respectReducedMotion": true
+  },
+  "security": {
+    "noEval": true
+  }
+}
