@@ -2,14 +2,32 @@
 
 A beautiful, interactive birthday website celebrating Aliyya's 22nd birthday with a purple cat theme. Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
 
+🌐 **Live Site**: [https://skyaerostudio.github.io/aliyya-22-birthday/](https://skyaerostudio.github.io/aliyya-22-birthday/)
+
+## 🎂 Birthday Timeline
+
+- **Before August 30, 2025**: Shows countdown timer only with "Something special is coming..."
+- **August 30, 2025 00:00 Jakarta Time**: Full website unlocks with Indonesian gate system
+- **After Gate**: Complete birthday experience with love letter, gallery, and messages
+
 ## ✨ Features
 
-- **Interactive Gate System**: Answer 3 questions to enter the celebration
-- **Countdown Timer**: Real-time countdown to the birthday (August 30, 2025)
-- **Love Letter**: Heartfelt message with expandable wishes
-- **Photo Gallery**: Interactive gallery with lightbox functionality
-- **Birthday Messages**: Messages from friends and family
-- **Paw Confetti**: Celebratory animation upon entering
+### 🔒 **Birthday Lock System**
+- **Pre-Birthday**: Shows only countdown until August 30, 2025
+- **Auto-Unlock**: Full site reveals automatically on birthday
+
+### 🚪 **Interactive Indonesian Gate System**
+- 3 multiple-choice questions in Indonesian
+- Secure SHA-256 hash verification
+- Personal questions about Aliyya
+
+### 💜 **Full Birthday Experience** 
+- **Personal Love Letter**: Heartfelt message from R
+- **Real-time Countdown**: To August 30, 2025 (Jakarta timezone)
+- **Photo Gallery**: Interactive gallery with custom lightbox
+- **Birthday Messages**: System for friends and family messages
+- **Paw Confetti**: Celebratory animation upon gate success
+- **Purple Cat Theme**: Consistent branding throughout
 - **Responsive Design**: Beautiful on all devices
 - **Accessibility**: Focus management and reduced motion support
 
@@ -48,7 +66,9 @@ A beautiful, interactive birthday website celebrating Aliyya's 22nd birthday wit
    The gate questions are:
    - Q1: "siapa kucing ter gemes se dunia (warna krem)" → Answer: **Niko**
    - Q2: "babybooboo .....poopoo" → Answer: **cutie**  
-   - Q3: "berapa streak tiktok kamu sama pacarmu?" → Answer: **300–500**
+   - Q3: "berapa streak tiktok kamu sama pacarmu?" → Answer: **300-500**
+   
+   **Note**: Gate only appears after August 30, 2025. Before that, only countdown is shown.
 
 5. **Run the development server**
    ```bash
@@ -59,10 +79,12 @@ A beautiful, interactive birthday website celebrating Aliyya's 22nd birthday wit
 
 ### Development Bypass
 
-During development, you can bypass the gate by visiting:
+During development, you can bypass both birthday lock and gate by visiting:
 ```
 http://localhost:3000?bypass=true
 ```
+
+This will show the full site regardless of date and skip the gate system.
 
 ## 🎨 Customization
 
@@ -122,22 +144,30 @@ const questions = [
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### GitHub Pages (Current Deployment)
 
-1. Push your code to GitHub
-2. Connect your repository to [Vercel](https://vercel.com)
-3. Add your environment variables in Vercel dashboard
-4. Deploy!
+The site is automatically deployed to GitHub Pages using GitHub Actions:
 
-### Other Platforms
+🌐 **Live URL**: [https://skyaerostudio.github.io/aliyya-22-birthday/](https://skyaerostudio.github.io/aliyya-22-birthday/)
 
-This is a static Next.js site that can be deployed to:
+**Deployment Process:**
+1. Push to `main` branch triggers automatic build
+2. GitHub Actions builds and deploys to `gh-pages` branch
+3. Site is live within minutes
+
+**Required GitHub Secrets:**
+- `NEXT_PUBLIC_GATE_SALT`
+- `NEXT_PUBLIC_GATE_HASH_Q1`
+- `NEXT_PUBLIC_GATE_HASH_Q2` 
+- `NEXT_PUBLIC_GATE_HASH_Q3`
+
+### Alternative Platforms
+
+This static Next.js site can also be deployed to:
+- Vercel
 - Netlify
-- GitHub Pages  
 - Firebase Hosting
 - Any static hosting service
-
-Just run `npm run build` and deploy the `out` folder.
 
 ## 🎯 Tech Stack
 
@@ -145,8 +175,9 @@ Just run `npm run build` and deploy the `out` folder.
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
-- **Fonts**: Inter, Poppins
-- **Deployment**: Vercel
+- **Fonts**: Inter, Poppins, Caveat
+- **Deployment**: GitHub Pages
+- **CI/CD**: GitHub Actions
 
 ## 🔒 Security
 
@@ -164,10 +195,13 @@ Just run `npm run build` and deploy the `out` folder.
 ## 🎨 Design Features
 
 - **Purple Cat Theme**: Consistent purple gradient with cat emojis
+- **Custom Color Palette**: `#B48CEC` (primary), `#9B71E8` (primary-600), `#F5EEFF` (surface), `#2A123C` (ink)
 - **Glassmorphism**: Beautiful glass effect cards
 - **Smooth Animations**: Framer Motion for delightful interactions
+- **Typography**: Inter (body), Poppins (headings), Caveat (script)
 - **Responsive Layout**: Mobile-first design
 - **Accessibility**: ARIA labels, focus management, reduced motion support
+- **Time-Based Reveal**: Birthday lock system for surprise factor
 
 ## 📝 License
 
@@ -180,6 +214,25 @@ Made with 💜 for Aliyya's 22nd Birthday
 - **Theme**: Purple Cat
 - **Timezone**: Jakarta Time (UTC+7)
 
+## 🎊 Special Features
+
+### 🔐 **Security & Privacy**
+- Answers hashed using SHA-256 with salt
+- No sensitive data in client-side code
+- Environment variables for configuration
+
+### 🌍 **Internationalization**
+- Indonesian gate questions for authenticity
+- Jakarta timezone for accurate countdown
+- Personal cultural references
+
+### ⏰ **Time-Based Experience**
+- **Phase 1**: Countdown only (before birthday)
+- **Phase 2**: Gate system (on birthday)
+- **Phase 3**: Full experience (after gate)
+
 ---
 
-Happy Birthday Aliyya! 🎂✨🐱💜
+🎉 **Made with 💜 for Aliyya's 22nd Birthday** 🎂✨🐱
+
+**Live Site**: [https://skyaerostudio.github.io/aliyya-22-birthday/](https://skyaerostudio.github.io/aliyya-22-birthday/)
