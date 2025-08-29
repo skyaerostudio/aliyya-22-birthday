@@ -19,7 +19,7 @@ const Navigation = () => {
     { name: 'Home', href: '#hero' },
     { name: 'Love Letter', href: '#love-letter' },
     { name: 'Gallery', href: '#gallery' },
-    { name: 'Messages', href: '#messages' },
+    { name: '22 Reasons', href: '#reasons' },
   ]
 
   return (

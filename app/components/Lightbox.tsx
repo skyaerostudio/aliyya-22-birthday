@@ -10,7 +10,6 @@ interface LightboxProps {
     src: string
     alt: string
     caption: string
-    category: string
   }
   onClose: () => void
   onNext?: () => void
@@ -111,25 +110,12 @@ const Lightbox = ({ image, onClose, onNext, onPrev, hasNext, hasPrev }: Lightbox
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
           className="relative bg-white rounded-lg overflow-hidden shadow-2xl max-w-full max-h-[80vh]"
         >
-          {/* Image placeholder with gradient */}
-          <div className="relative min-h-[400px] min-w-[400px] max-w-[90vw] max-h-[70vh] bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
-            {/* Placeholder content */}
-            <div className="text-center text-white">
-              <div className="text-6xl mb-4">📷</div>
-              <div className="text-xl font-semibold mb-2">Photo {image.id}</div>
-              <div className="text-sm opacity-80">{image.alt}</div>
-            </div>
-
-            {/* Loading overlay effect */}
-            <motion.div
-              initial={{ opacity: 0.8 }}
-              animate={{ opacity: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="absolute inset-0 bg-black/20 flex items-center justify-center"
-            >
-              <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-            </motion.div>
-          </div>
+          {/* Actual Image */}
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="max-w-[90vw] max-h-[70vh] object-contain"
+          />
         </motion.div>
 
         {/* Caption */}
@@ -143,9 +129,6 @@ const Lightbox = ({ image, onClose, onNext, onPrev, hasNext, hasPrev }: Lightbox
             {image.caption}
           </p>
           <div className="flex items-center justify-center space-x-4 text-sm text-white/60">
-            <span className="capitalize bg-purple-600/30 px-3 py-1 rounded-full">
-              {image.category}
-            </span>
             <span>
               Photo {image.id}
             </span>

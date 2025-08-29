@@ -7,7 +7,7 @@ import Hero from './components/Hero'
 import Countdown from './components/Countdown'
 import LoveLetter from './components/LoveLetter'
 import Gallery from './components/Gallery'
-import Messages from './components/Messages'
+import Reasons from './components/Reasons'
 import Footer from './components/Footer'
 import PawConfetti from './components/PawConfetti'
 
@@ -105,9 +105,10 @@ export default function Home() {
         <Gallery />
       </section>
       
-      <section id="messages">
-        <Messages />
+      <section id="reasons">
+        <Reasons />
       </section>
+      
       
       <Footer />
     </main>

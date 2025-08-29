@@ -94,17 +94,15 @@ const Footer = () => {
           className="mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-            Thanks for Celebrating with Aliyya! 🎉
+            Happy happy birthday the love of my life! 🎉
           </h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-            This special day wouldn't be complete without amazing people like you. 
-            Your presence, wishes, and love make every moment more meaningful. 
-            Here's to another year of friendship, joy, and beautiful memories! 💜
+            Keep being you, keep being awesome, and keep being the best person ever. I love you so much, happy birthday my sayang cintaaa!
           </p>
         </motion.div>
 
         {/* Share section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -139,7 +137,7 @@ const Footer = () => {
               {shareMessage}
             </motion.p>
           )}
-        </motion.div>
+        </motion.div> */}
 
         {/* Birthday stats */}
         <motion.div

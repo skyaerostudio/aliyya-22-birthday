@@ -9,84 +9,64 @@ interface GalleryImage {
   src: string
   alt: string
   caption: string
-  category: 'memories' | 'celebrations' | 'moments' | 'adventures'
 }
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
-  const [activeCategory, setActiveCategory] = useState<string>('all')
 
-  // Sample images - these would be replaced with actual images
+  // Aliyya's birthday photos
   const images: GalleryImage[] = [
     {
       id: 1,
-      src: '/api/placeholder/400/400',
-      alt: 'Beautiful moment 1',
-      caption: 'A perfect day filled with laughter and joy 🌟',
-      category: 'memories'
+      src: '/images/IMG-20250830-WA0010.jpg',
+      alt: 'Beautiful memories with Aliyya',
+      caption: 'Cantik bgt bayi',
     },
     {
       id: 2,
-      src: '/api/placeholder/400/600',
-      alt: 'Celebration moment',
-      caption: 'Celebrating life\'s precious moments together 🎉',
-      category: 'celebrations'
+      src: '/images/IMG-20250830-WA0011.jpg',
+      alt: 'Special celebration moment',
+      caption: 'Ciee di heidelberg (iya gasih)',
     },
     {
       id: 3,
-      src: '/api/placeholder/600/400',
-      alt: 'Adventure time',
-      caption: 'Every adventure is better with you 🗺️',
-      category: 'adventures'
+      src: '/images/IMG-20250830-WA0012.jpg',
+      alt: 'Adventure with Aliyya',
+      caption: 'Mam syuusyiii',
     },
     {
       id: 4,
-      src: '/api/placeholder/400/500',
-      alt: 'Sweet moment',
-      caption: 'Those quiet moments that mean everything 💜',
-      category: 'moments'
+      src: '/images/IMG-20250830-WA0013.jpg',
+      alt: 'Sweet moment together',
+      caption: 'Gemec kita',
     },
     {
       id: 5,
-      src: '/api/placeholder/500/400',
-      alt: 'Fun times',
-      caption: 'Making memories that last a lifetime ✨',
-      category: 'memories'
+      src: '/images/IMG-20250830-WA0014.jpg',
+      alt: 'Fun times with Aliyya',
+      caption: 'Only the OG knows this one',
     },
     {
       id: 6,
-      src: '/api/placeholder/400/400',
+      src: '/images/IMG-20250830-WA0015.jpg',
       alt: 'Special celebration',
-      caption: 'Every celebration is special with you 🎂',
-      category: 'celebrations'
+      caption: 'Pacal x Parkiran',
     },
     {
       id: 7,
-      src: '/api/placeholder/600/500',
-      alt: 'Amazing adventure',
-      caption: 'Life is an adventure, and you make it extraordinary 🌈',
-      category: 'adventures'
+      src: '/images/IMG-20250830-WA0016.jpg',
+      alt: 'Amazing adventure together',
+      caption: 'Pacalan di PIM gaess',
     },
     {
       id: 8,
-      src: '/api/placeholder/400/600',
+      src: '/images/WhatsApp Image 2025-08-30 at 05.02.54_883da5e5.jpg',
       alt: 'Precious moment',
-      caption: 'Capturing the beauty of everyday moments 📸',
-      category: 'moments'
+      caption: 'Ni tergemes sedunia, mantap',
     }
   ]
 
-  const categories = [
-    { id: 'all', name: 'All Photos', icon: '📸' },
-    { id: 'memories', name: 'Sweet Memories', icon: '💭' },
-    { id: 'celebrations', name: 'Celebrations', icon: '🎉' },
-    { id: 'moments', name: 'Special Moments', icon: '✨' },
-    { id: 'adventures', name: 'Adventures', icon: '🗺️' }
-  ]
-
-  const filteredImages = activeCategory === 'all' 
-    ? images 
-    : images.filter(img => img.category === activeCategory)
+  const filteredImages = images
 
   return (
     <section className="py-20 px-4 relative">
@@ -108,42 +88,13 @@ const Gallery = () => {
           </p>
         </motion.div>
 
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {categories.map((category) => (
-            <motion.button
-              key={category.id}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                activeCategory === category.id
-                  ? 'bg-purple-600 text-white shadow-lg'
-                  : 'glass text-white/80 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              <span className="mr-2">{category.icon}</span>
-              {category.name}
-            </motion.button>
-          ))}
-        </motion.div>
-
         {/* Gallery Grid */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCategory}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-          >
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
             {filteredImages.map((image, index) => (
               <motion.div
                 key={image.id}
@@ -160,15 +111,13 @@ const Gallery = () => {
                 onClick={() => setSelectedImage(image)}
               >
                 <div className="glass rounded-xl overflow-hidden transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-purple-500/20">
-                  {/* Image placeholder with gradient */}
-                  <div className="aspect-square bg-gradient-to-br from-purple-400 to-pink-400 relative overflow-hidden">
-                    {/* Image would go here */}
-                    <div className="absolute inset-0 flex items-center justify-center text-white/80">
-                      <div className="text-center">
-                        <div className="text-4xl mb-2">📷</div>
-                        <div className="text-sm">Photo {image.id}</div>
-                      </div>
-                    </div>
+                  {/* Actual Image */}
+                  <div className="aspect-square relative overflow-hidden">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
                     
                     {/* Hover overlay */}
                     <motion.div
@@ -188,15 +137,11 @@ const Gallery = () => {
                     <p className="text-white/90 text-sm leading-relaxed">
                       {image.caption}
                     </p>
-                    <div className="mt-2 text-xs text-purple-300 capitalize">
-                      {image.category}
-                    </div>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </motion.div>
-        </AnimatePresence>
+        </motion.div>
 
         {/* Empty state */}
         {filteredImages.length === 0 && (
