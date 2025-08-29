@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { hashInput } from '../utils/crypto'
 
 interface GateProps {
   onSuccess: () => void
@@ -32,12 +31,6 @@ const Gate = ({ onSuccess }: GateProps) => {
     }
   ]
 
-  const expectedHashes = [
-    process.env.NEXT_PUBLIC_GATE_HASH_Q1 || '',
-    process.env.NEXT_PUBLIC_GATE_HASH_Q2 || '',
-    process.env.NEXT_PUBLIC_GATE_HASH_Q3 || ''
-  ]
-
   const handleAnswerChange = (value: string) => {
     const newAnswers = [...answers]
     newAnswers[currentQuestion] = value
@@ -45,25 +38,22 @@ const Gate = ({ onSuccess }: GateProps) => {
     setError('')
   }
 
-  const handleNext = async () => {
+  const handleNext = () => {
     setIsChecking(true)
     
-    try {
-      const userHash = await hashInput(answers[currentQuestion])
-      const expectedHash = expectedHashes[currentQuestion]
-      
-      if (userHash === expectedHash) {
-        if (currentQuestion === questions.length - 1) {
-          // All questions answered correctly
-          onSuccess()
-        } else {
-          setCurrentQuestion(currentQuestion + 1)
-        }
+    // Simple direct comparison
+    const currentAnswer = answers[currentQuestion].trim().toLowerCase()
+    const correctAnswer = questions[currentQuestion].correctAnswer.trim().toLowerCase()
+    
+    if (currentAnswer === correctAnswer) {
+      if (currentQuestion === questions.length - 1) {
+        // All questions answered correctly
+        onSuccess()
       } else {
-        setError('Hmm, that doesn\'t seem right. Try again! 🤔')
+        setCurrentQuestion(currentQuestion + 1)
       }
-    } catch (err) {
-      setError('Something went wrong. Please try again.')
+    } else {
+      setError('Hmm, that doesn\'t seem right. Try again! 🤔')
     }
     
     setIsChecking(false)
