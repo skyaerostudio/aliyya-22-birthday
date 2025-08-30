@@ -2,10 +2,14 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/aliyya-22-birthday' : '',
   images: {
     unoptimized: true
-  }
+  },
+  // Explicitly set empty assetPrefix for Netlify
+  assetPrefix: '',
+  // Ensure proper static file handling
+  generateEtags: false,
+  poweredByHeader: false
 }
 
 module.exports = nextConfig
